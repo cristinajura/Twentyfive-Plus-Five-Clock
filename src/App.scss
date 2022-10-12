@@ -1,0 +1,86 @@
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 69vh;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  @media screen and (max-width: 520px) {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 400px) {
+    transform: scale(0.7);
+  }
+}
+
+.sessionControls {
+  width: 420px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .sessions,
+  .breaks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #session-label,
+    #break-label {
+      display: flex;
+      margin-bottom: 8px;
+    }
+    #session-controls,
+    #break-controls {
+      width: 160px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      #session-length,
+      #break-length {
+        margin-top: 0px;
+      }
+    }
+  }
+  @media screen and (max-width: 520px) {
+    flex-direction: column;
+  }
+}
+
+#display {
+  border-radius: 50px;
+  border: 7px solid #034;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 0px 40px 10px 40px;
+}
+
+button {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to right, #056, #167);
+  border: none;
+  border-radius: 50px;
+  font-size: 26px;
+  margin: -5px 8px;
+  color: #fff;
+}
+button:hover {
+  color: #9cc;
+}
+
+.btnWrapper {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.createdBy {
+  font-size: 17px;
+  margin-top: 30px;
+  color: #023;
+  a {
+    text-decoration: none;
+    color: #9cc;
+  }
+}
