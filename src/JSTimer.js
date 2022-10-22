@@ -69,14 +69,14 @@ class JSTimer extends React.Component {
     );
   }
 
-  handleLenght(currVal, displaySession, stateLength, lengths) {
+  handleLenght(currVal, session, stateLength, lengths) {
     const value = currVal;
     const one = parseInt(value);
     if (
       (this.state.timerState === "stopped" && one === 1 && stateLength < 60) ||
       (this.state.timerState === "stopped" && one === -1 && stateLength > 1)
     ) {
-      if (this.state.displaySession === displaySession) {
+      if (this.state.displaySession === session) {
         this.setState({
           [lengths]: stateLength + one
         });
@@ -194,7 +194,7 @@ class JSTimer extends React.Component {
     }
   }
 
-   alarmBip() {
+  alarmBip() {
     if (this.state.displayMinutes === 0 && this.state.displaySeconds === 1) {
       const audio = new Audio(
         'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav',
@@ -215,8 +215,8 @@ class JSTimer extends React.Component {
       displaySession: "Session"
     });
     this.myInterval.cancel();
-    this.audioBeep.pause();
-    this.audioBeep.currentTime = 0;
+    this.alarmBip.pause();
+    this.alarmBip.currentTime = 0;
   }
 
   render() {
@@ -272,11 +272,9 @@ class JSTimer extends React.Component {
         </div>
         <div className="btnWrapper">
           <button id="start_stop" onClick={this.playSession}>
-            {/* <i class="fa fa-play"></i> */}
             <FontAwesomeIcon icon="fas fa-play" />
           </button>
           <button id="reset" onClick={this.reset}>
-            {/* <i class="fa fa-refresh"></i> */}
             <FontAwesomeIcon icon="fas fa-sync-alt" />
           </button>
         </div>
